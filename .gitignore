@@ -1,0 +1,8 @@
+install-lib
+*.gz
+*.bz2
+*.xz
+scripts/gmp/gmp-*/
+scripts/isl/isl-*/
+scripts/mpc/mpc-*/
+scripts/mpfr/mpfr-*/
