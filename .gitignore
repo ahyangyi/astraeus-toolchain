@@ -6,3 +6,5 @@ scripts/gmp/gmp-*/
 scripts/isl/isl-*/
 scripts/mpc/mpc-*/
 scripts/mpfr/mpfr-*/
+scripts/binutils-gdb/binutils-*/
+scripts/binutils-gdb/build/
