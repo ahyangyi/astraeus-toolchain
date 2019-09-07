@@ -1,4 +1,5 @@
 install-lib
+install-package
 *.gz
 *.bz2
 *.xz
