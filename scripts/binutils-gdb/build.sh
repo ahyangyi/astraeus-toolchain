@@ -7,7 +7,7 @@ cd -P "$( dirname "$0" )"
 source ${PWD}/../../env/env.sh
 
 LIBPREFIX=${PWD}/../../install-lib/
-PREFIX=${PWD}/../../install-package/binutils
+PREFIX=${PWD}/../../prefix/usr/
 
 [ -e binutils-${VERSION}.tar.xz ] || wget https://ftp.gnu.org/gnu/binutils/binutils-${VERSION}.tar.xz
 tar xfv binutils-${VERSION}.tar.xz

@@ -24,4 +24,8 @@
         cd binutils-gdb
         ./build.sh
     )
+    (
+        cd gcc
+        ./build.sh
+    )
 )
