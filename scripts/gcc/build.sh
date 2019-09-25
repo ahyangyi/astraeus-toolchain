@@ -93,8 +93,21 @@ mkdir -p gcc-build-2
 )
 
 (
-    cd ${PREFIX}/usr
-    strip bin/x86_64-astraeus-linux-gnu-strip libexec/gcc/x86_64-astraeus-linux-gnu/${VERSION}/{cc1,cc1plus,collect2,lto1,lto-wrapper,liblto_plugin.so,liblto_plugin.so.0,liblto_plugin.so.0.0.0}
-    rm -R libexec/gcc/x86_64-astraeus-linux-gnu/${VERSION}/{liblto_plugin.la,install-tools} lib/gcc/x86_64-astraeus-linux-gnu/${VERSION}/install-tools/ lib64/gconv/ share/
-    sed -i 's: /: =/:g' lib64/libc.so lib64/libpthread.so
+    cd ${PREFIX}
+    (
+        cd usr/bin
+        strip gencat getconf getent iconv locale localedef pcprofiledump rpcgen sprof x86_64-astraeus-*
+    )
+    (
+        cd usr/libexec/gcc/x86_64-astraeus-linux-gnu/${VERSION}/
+        strip cc1 cc1plus collect2 liblto_plugin.so* lto1 lto-wrapper plugin/*
+    )
+    (
+        cd usr/lib64
+        ../bin/x86_64-astraeus-linux-gnu-strip libanl.so libBrokenLocale.so libcc1.so libcidn.so libcrypt.so libdl.so libm.so libnsl.so libnss_compat.so libnss_dns.so libnss_files.so libnss_hesiod.so libnss_nisplus.so libnss_nis.so libresolv.so librt.so libthread_db.so libutil.so
+    )
+    find lib64 usr/x86_64-astraeus-linux-gnu/bin usr/x86_64-astraeus-linux-gnu/lib -name "*.so*" -type f -exec usr/bin/x86_64-astraeus-linux-gnu-strip {} \;
+    rm -R usr/libexec/gcc/x86_64-astraeus-linux-gnu/${VERSION}/{liblto_plugin.la,install-tools} usr/lib/gcc/x86_64-astraeus-linux-gnu/${VERSION}/install-tools/ usr/lib64/gconv/ usr/share/
+    sed -i 's: /: =/:g' usr/lib64/libc.so usr/lib64/libpthread.so
 )
+
